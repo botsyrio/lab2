@@ -4,6 +4,7 @@
 
 int main(int argc, char *argv[]){
 	double tstart = 0.0, tend=0.0, ttaken;
+	FILE * fp;
 	char output[100] = "";
 	
 	int n = atoi(argv[1]);
