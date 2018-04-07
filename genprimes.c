@@ -4,6 +4,7 @@
 
 int main(int argc, char *argv[]){
 	double tstart = 0.0, tend=0.0, ttaken;
+	char output[100] = "";
 	
 	int n = atoi(argv[1]);
 	int numbers[n+1];
@@ -25,7 +26,7 @@ int main(int argc, char *argv[]){
 		}
 	}
 	
-	ttaken = omp_get_wtime()-t_start;
+	ttaken = omp_get_wtime()-tstart;
 	printf(“Time take for the main part: %f\n”, ttaken);
 	
 	sprintf(output,"%d.sol",n);
