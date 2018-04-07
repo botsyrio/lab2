@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 	for(int i=2; i<((n+1)/2); i++){
 		if(numbers[i] != 0){
 			int x = i;
-			#pragma omp parallel for
+			#pragma omp for
 			for(int j=2; j<=n/i; j++){
 				if(numbers[j*x]!=0)
 					numbers[j*x]=0;
