@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
 		if(numbers[i] != 0){
 			int x = i;
 			#pragma omp for \ 
-			schedule(dynamic, 4)
+			schedule(dynamic)
 			for(int j=2; j<=n/i; j++){
 				if(numbers[j*x]!=0)
 					numbers[j*x]=0;
