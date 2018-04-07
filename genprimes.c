@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
 	int numbers[n+1];
 	int thread_count = atoi(argv[2]);
 	//printf("thread_count: %d", thread_count);
-	//#pragma omp parallel for
+	#pragma omp parallel for
 	for(int i = 2; i<=n; i++)
 		numbers[i] = i;
 	
