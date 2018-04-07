@@ -6,11 +6,11 @@ int main(int argc, char *argv[]){
 	double tstart = 0.0, tend=0.0, ttaken;
 	
 	int n = atoi(argv[1]);
-	boolean numbers[n+1];
+	int numbers[n+1];
 	int thread_count = atoi(argv[2]);
 	#pragma omp parallel for
 	for(int i = 2; i<=n; i++)
-		numbers[i] = true;
+		numbers[i] = i;
 	
 	tstart = omp_get_wtime(); 
 	#pragma omp parallel num_threads(thread_count){
@@ -19,8 +19,8 @@ int main(int argc, char *argv[]){
 				int x = i;
 				#pragma omp parallel for
 				for(int j=2; j<=n/i; j++){
-					if(numbers[j*x]!=false)
-						numbers[j*x]=false;
+					if(numbers[j*x]!=0)
+						numbers[j*x]=0;
 				}
 			}
 		}
