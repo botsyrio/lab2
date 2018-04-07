@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
 	}
 	
 	ttaken = omp_get_wtime()-tstart;
-	printf(“Time take for the main part: %f\n”, ttaken);
+	printf("Time take for the main part: %f\n", ttaken);
 	
 	sprintf(output,"%d.sol",n);
 	fp = fopen(output,"w");
