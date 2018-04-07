@@ -41,7 +41,7 @@ int main(int argc, char *argv[]){
 	int prevB=2;
 	fprintf(fp, "%d %d %d\n", a, 2, 0);
     for(int b = 3; b < n; b++){
-		if(numbers[b]==true){
+		if(numbers[b]!=0){
 			a++;
 			fprintf(fp,"%d %d %d\n", a, b, b-prevB);
 			prevB = b;
