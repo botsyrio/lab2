@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
 	ttaken = omp_get_wtime()-tstart;
 	printf("Time take for the main part: %f\n", ttaken);
 	
-	sprintf(output,"%d.sol",n);
+	sprintf(output,"%d.txt",n);
 	fp = fopen(output,"w");
 	if(!fp){
 		printf("Cannot create the file %s\n", output);
