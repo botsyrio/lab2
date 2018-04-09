@@ -11,14 +11,14 @@ int main(int argc, char *argv[]){
 	int numbers[n+1];
 	int thread_count = atoi(argv[2]);
 	//printf("thread_count: %d", thread_count);
-	#pragma omp parallel for
 	numbers[2]=1;
+	#pragma omp parallel for
 	for(int i = 3; i<=n; i+=2)//we can optimize by taking out all the evens besides 2
 		numbers[i] = 1;
 	
 	tstart = omp_get_wtime(); 
 	int i;
-	#pragma omp parallel for num_threads(thread_count) private(i) schedule(dynamic 10)
+	#pragma omp parallel for num_threads(thread_count) private(i) schedule(dynamic, 10)
 	for(i=3; i<((n+1)/2); i+=2){
 		if(numbers[i] != 0){
 			for(int j=2; j<=n/i; j++){
