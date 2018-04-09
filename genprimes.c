@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
 	char output[100] = "";
 	
 	int n = atoi(argv[1]);
-	int oddsLength = (n-3)/2;
+	int oddsLength = (n-4)/2;
 	int odds[oddsLength];//if odds[i]=1, this means the number represented by i*2+3 is currently noted as a possible prime.
 	int thread_count = atoi(argv[2]);
 	//printf("thread_count: %d", thread_count);
