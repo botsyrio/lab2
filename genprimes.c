@@ -19,12 +19,11 @@ int main(int argc, char *argv[]){
 	#pragma omp parallel num_threads(thread_count)
 	for(int i=2; i<((n+1)/2); i++){
 		if(numbers[i] != 0){
-			int x = i;
 			#pragma omp for \ 
 			schedule(dynamic, 10)
 			for(int j=2; j<=n/i; j++){
-				if(numbers[j*x]!=0)
-					numbers[j*x]=0;
+				if(numbers[j*i]!=0)
+					numbers[j*i]=0;
 			}
 		}
 	}
