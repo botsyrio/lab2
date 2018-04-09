@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 	
 	tstart = omp_get_wtime(); 
 	int i;
-	#pragma omp parallel for num_threads(thread_count) private(i) schedule(dynamic, 4)
+	#pragma omp parallel for num_threads(thread_count) private(i) schedule(dynamic 10)
 	for(i=2; i<((n+1)/2); i++){
 		if(numbers[i] != 0){
 			for(int j=2; j<=n/i; j++){
