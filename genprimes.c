@@ -41,8 +41,8 @@ int main(int argc, char *argv[]){
 	int prevB=2;
 	int b;
 	fprintf(fp, "%d %d %d\n", a, 2, 0);
-    for(int b = 3; b <= n; b+=2){
-		if(odds[b]!=0){
+    for(int i = 3; i <= n; i+=2){
+		if(odds[i]!=0){
 			b=i*2+3;
 			a++;
 			fprintf(fp,"%d %d %d\n", a, b, b-prevB);
