@@ -8,21 +8,21 @@ int main(int argc, char *argv[]){
 	char output[100] = "";
 	
 	int n = atoi(argv[1]);
-	int numbers[n+1];
+	int oddsLength = (n-3)/2;
+	int odds[oddsLength];//if odds[i]=1, this means the number represented by i*2+3 is currently noted as a possible prime.
 	int thread_count = atoi(argv[2]);
 	//printf("thread_count: %d", thread_count);
-	numbers[2]=1;
 	#pragma omp parallel for
-	for(int i = 3; i<=n; i+=2)//we can optimize by taking out all the evens besides 2
-		numbers[i] = 1;
+	for(int i = 0; i<oddsLength; i++)//we can optimize by taking out all the evens besides 2
+		odds[i] = 1;
 	
 	tstart = omp_get_wtime(); 
 	#pragma omp parallel for num_threads(thread_count) schedule(dynamic, 10)
-	for(int i=3; i<((n+1)/2); i+=2){
-		if(numbers[i] != 0){
-			for(int j=2; j<=n/i; j++){
-				if(numbers[j*i]!=0)
-					numbers[j*i]=0;
+	for(int i=0; i<(oddsLength); i++){
+		if(odds[i] != 0){
+			for(int j=3; j<=n/i; j+=2){
+				if(odds[j*i]!=0)
+					odds[j*i]=0;
 			}
 		}
 	}
@@ -39,9 +39,11 @@ int main(int argc, char *argv[]){
 	
 	int a = 1;
 	int prevB=2;
+	int b;
 	fprintf(fp, "%d %d %d\n", a, 2, 0);
     for(int b = 3; b <= n; b+=2){
-		if(numbers[b]!=0){
+		if(odds[b]!=0){
+			b=i*2+3;
 			a++;
 			fprintf(fp,"%d %d %d\n", a, b, b-prevB);
 			prevB = b;
