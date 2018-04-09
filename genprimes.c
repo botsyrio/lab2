@@ -20,7 +20,6 @@ int main(int argc, char *argv[]){
 	private(j)
 	for(int i=2; i<((n+1)/2); i++){
 		if(numbers[i] != 0){
-			schedule(dynamic, 10)
 			for(int j=2; j<=n/i; j++){
 				if(numbers[j*i]!=0)
 					numbers[j*i]=0;
