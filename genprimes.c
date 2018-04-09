@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 	#pragma omp parallel for num_threads(thread_count) schedule(dynamic, 10)
 	for(int i=0; i<(oddsLength); i++){
 		if(odds[i] != 0){
-			for(int j=3; j<=n/i; j+=2){
+			for(int j=3; j*i<oddsLength; j+=2){
 				if(odds[j*i]!=0)
 					odds[j*i]=0;
 			}
